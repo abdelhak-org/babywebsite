@@ -19,8 +19,14 @@ const Navbar = (props) => {
         <Link to="articles" className='block md:inline text-center'><li>Articles</li></Link>
         <Link to="gallery" className='block md:inline text-center'><li>gallery</li></Link>
         <Link to ="shop" className='block md:inline text-center hover:text-pink-200'><li>shop</li></Link>
-        <Link to="subscribe" className='block md:inline text-center'><li>Subscribe</li></Link> 
-        <Link to="login" className='block md:inline text-center'><li>Login </li></Link> 
+        {  !props.isAuth ?
+          <Link to="subscribe" className='block md:inline text-center'><li>Subscribe</li></Link> :
+          <Link to="addpost" className='block md:inline text-center'><li>Add Post</li></Link> }
+
+        { !props.isAuth?
+          <Link to="login" className='block md:inline text-center'><li>Login </li></Link>:
+          <Link to="addpost" className='block md:inline text-center'><li>LogOut </li></Link>
+          }
 
  
        

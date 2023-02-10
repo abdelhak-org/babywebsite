@@ -19,22 +19,22 @@ export default class AutoPlay extends Component {
   
         <Slider {...settings}>
           <div className='  text-white mx-4 border font-bold text-center   '>
-            <img src ={babyone} alt="img"  className="h-[80vh] w-auto "   />
+            <img src ={babyone} alt="img"  className="h-[80vh] w-auto  "   />
           </div>
           <div className='  text-white mx-4 border font-bold text-center    '>
-            <img src ={babytwo} alt="img" className="h-[80vh] w-auto" />
+            <img src ={babytwo} alt="img" className="h-[80vh] w-auto " />
           </div>
           <div className='  text-white mx-4 border font-bold text-center    '>
-            <img src ={babythree} alt="img" className="h-[80vh] w-auto" />
+            <img src ={babythree} alt="img" className="h-[80vh] w-auto " />
           </div>
           <div className='  text-white mx-4 border font-bold text-center    '>
-            <img src ={babyfour} alt="img"  className="h-[80vh] w-auto"/>
+            <img src ={babyfour} alt="img"  className="h-[80vh] w-auto "/>
           </div>
           <div className='  text-white mx-4 border font-bold text-center    '>
-            <img src ={babyfive} alt="img"  className="h-[80vh] w-auto"/>
+            <img src ={babyfive} alt="img"  className="h-[80vh] w-auto "/>
           </div>
           <div className='  text-white mx-4 border font-bold text-center    '>
-            <img src ={babydog} alt="img"  className="h-[80vh] w-auto"/>
+            <img src ={babydog} alt="img"  className="h-[80vh] w-auto "/>
           </div>
        
         </Slider>

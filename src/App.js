@@ -41,17 +41,15 @@ function App() {
    
    
    <Routes>
-   <Route exact path ="/"    element={<Home/>}      />
+   <Route exact path ="/"    element={<Home isauth={currentUser}/>}      />
    <Route exact path ="/gallery"    element={<Gallery/>}      />
    <Route exact path ="/articles"    element={<Articles articles={articles}  isauth={currentUser}/>}      />
    <Route exact path ="/shop"    element={<Shop/>}      />
    <Route exact path ="/about"    element={< About/>}      />
    <Route path='/subscribe'   element ={<CreateUser/>}  /> 
    <Route path='/login'   element ={<Login/>}  />
-   
-    
+   <Route path='/*'   element ={<Home/>}  />
    <Route path='/addpost'   element ={<AddPost   currentUser={currentUser}/>}  />
-
    </Routes>
    <Contact/>
    <Footer/>
