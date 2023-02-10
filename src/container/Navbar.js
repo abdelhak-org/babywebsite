@@ -3,7 +3,7 @@ import {Link , useNavigate} from "react-router-dom"
 import "./navbar.css";
 
 
-const Navbar = () => {
+const Navbar = (props) => {
 
 
 
@@ -19,8 +19,12 @@ const Navbar = () => {
         <Link to="articles" className='block md:inline text-center'><li>Articles</li></Link>
         <Link to="gallery" className='block md:inline text-center'><li>gallery</li></Link>
         <Link to ="shop" className='block md:inline text-center hover:text-pink-200'><li>shop</li></Link>
-        <Link to="subscribe" className='block md:inline text-center'><li>Subscribe</li></Link>
-         <Link to="login" className='block md:inline text-center'><li>Login </li></Link> 
+        <Link to="subscribe" className='block md:inline text-center'><li>Subscribe</li></Link> 
+        <Link to="login" className='block md:inline text-center'><li>Login </li></Link> 
+
+ 
+       
+       
         
         
 

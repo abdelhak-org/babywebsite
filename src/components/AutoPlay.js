@@ -15,45 +15,28 @@ export default class AutoPlay extends Component {
       cssEase: "linear"
     };
     return (
-      <div className="bg-white h-[80vh] w-auto items-start ">
+      <div className="bg-white h-[80vh] w-sceen items-start ">
   
         <Slider {...settings}>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
-            <img src ={babyone} alt="img"  className="h-[80vh] w-auto"   />
+          <div className='  text-white mx-4 border font-bold text-center   '>
+            <img src ={babyone} alt="img"  className="h-[80vh] w-auto "   />
           </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
+          <div className='  text-white mx-4 border font-bold text-center    '>
             <img src ={babytwo} alt="img" className="h-[80vh] w-auto" />
           </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
+          <div className='  text-white mx-4 border font-bold text-center    '>
             <img src ={babythree} alt="img" className="h-[80vh] w-auto" />
           </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
+          <div className='  text-white mx-4 border font-bold text-center    '>
             <img src ={babyfour} alt="img"  className="h-[80vh] w-auto"/>
           </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
+          <div className='  text-white mx-4 border font-bold text-center    '>
             <img src ={babyfive} alt="img"  className="h-[80vh] w-auto"/>
           </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
+          <div className='  text-white mx-4 border font-bold text-center    '>
             <img src ={babydog} alt="img"  className="h-[80vh] w-auto"/>
           </div>
-            <div className='  text-white mx-4 border font-bold text-center h-100   '>
-            <img src ={babyone} alt="img"  className="h-[80vh] w-auto"   />
-          </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
-            <img src ={babytwo} alt="img" className="h-[80vh] w-auto" />
-          </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
-            <img src ={babythree} alt="img" className="h-[80vh] w-auto" />
-          </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
-            <img src ={babyfour} alt="img"  className="h-[80vh] w-auto"/>
-          </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
-            <img src ={babyfive} alt="img"  className="h-[80vh] w-auto"/>
-          </div>
-          <div className='  text-white mx-4 border font-bold text-center h-100   '>
-            <img src ={babydog} alt="img"  className="h-[80vh] w-auto"/>
-          </div>
+       
         </Slider>
       </div>
     );

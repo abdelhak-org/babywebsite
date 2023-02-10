@@ -44,12 +44,14 @@ const Login = () => {
           <button onClick={login }
           
           className='w-80 px-4 py-2 border rounded-xl text-lg
-          shadow-md shadow-sky-200 block mx-auto my-4 bg-sky-400 text-teal-100  hover:text-white'>Create Account</button>
+          shadow-md shadow-sky-200 block mx-auto my-4 bg-sky-400 text-teal-100  hover:text-white'>  Sign in </button>
           
 
           <p className='w-fit text-sm text-gray-800 mx-auto mt-8'> do not  have an Account
           <span className='text-blue-500 ml-2 hover:underline cursor-pointer'>create an Account</span> </p>
+
         </form>
+       
          
       
       

@@ -34,12 +34,16 @@ const CreateUser = () => {
   
 
   return (
-      <div className='w-screen h-screen bg-gray-100 pt-8'>
+      <div className='w-screen h-auto bg-gray-100 pt-8'>
+
         <h2 className='text-4xl font-semibold w-fit  my-4 mx-auto '>Sign Up <span className='font-normal'> form</span></h2>
-        < div className='w-[80%] h-[80%] mx-auto flex
-        justify-between items-center border  rounded-xl shadow-lg drop-shadow-2xl     shadow-cyan-500 bg-white-400 overflow-hidden	'>
-        <div className='w-[50%]  h-full'>
-         <form className='w-full h-full p-4 bg-white'>
+
+        < div className=' w-screen min-h-screen  md:w-[80%] md:h-auto mx-auto flex flex-col md:flex-row
+        md:justify-between md:items-center border  rounded-xl shadow-lg drop-shadow-2xl     shadow-cyan-500 bg-white-400 overflow-hidden	'>
+
+        <div className='w-full md:w-[50%]  h-auto'>
+
+         <form className='w-full h-full p-4 bg-white my-4'>
          <h4 className=' block w-fit mx-auto mt-8 text-gray-800 font-semibold text-xl tracking-wider'> 
          Hello , friend! </h4>
 
@@ -63,7 +67,7 @@ const CreateUser = () => {
         
         </div>
 
-        <div className='w-[50%] bg-gradient-to-b from-blue-200 to-sky-600  h-full flex justify-center items-center flex-col '>
+        <div className='w-screen md:w-[50%] bg-gradient-to-b from-blue-200 to-sky-600  h-screen  flex justify-center items-center flex-col '>
           <h3 className='w-fit text-2xl font-semibold text-white block mx-auto my-4'> Glad too meet you </h3>
           <p className='block font-normal text-lg text-white my-4'> lorem lorem loem lor ipsu di ! </p>
          
