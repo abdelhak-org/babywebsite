@@ -1,4 +1,4 @@
-import React ,{ useEffect, useState } from 'react';
+import React ,{  useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 
 
@@ -6,14 +6,8 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 
 const Article = (props) => {
     const [showitem , setShowitem] = useState(false);
-    
-    
-    
-    
-  useEffect(()=>{
-  
-  });
- 
+
+
   return (
     <div className='w-full h-auto border py-4 px-2 md:px-8  mx-auto my-4 rounded  '  key={props.id}>
     <div className='w-full h-auto flex justify-between '>

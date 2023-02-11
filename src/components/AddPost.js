@@ -1,11 +1,11 @@
-import React , { useEffect, useState} from 'react'
+import React , { useState} from 'react'
 import {db ,auth} from "../firebase.config";
 import { addDoc , collection } from "firebase/firestore";
 import { signOut} from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 
-const AddPost = (props) => {
+const AddPost = ({currentUser}) => {
 
     const [PostTitle   , setPostTitle]  = useState("");
     const [PostAuthour , setPostAuthour]  = useState("");
@@ -18,7 +18,7 @@ const AddPost = (props) => {
         const collectionRef= collection(db ,"users")
          await  addDoc(collectionRef , {
             title:PostTitle ,
-            author:{name :PostAuthour , id: props.currentUser.uid  },
+            author:{name :PostAuthour , id: currentUser.uid  },
             body:post
         });
         setPostTitle("");
@@ -26,26 +26,19 @@ const AddPost = (props) => {
         setPost("")
     };
 
-
-
-   const getAuth = ()=>{  
-    console.log( props.currentUser)
-   }
    const logOut= async()=>{
      await signOut(auth);
      navigate("/login")
     
    }
-    useEffect(()=>{
-      getAuth();
-    })
+   
     return (
       
     <div className=' min-h-screen bg-blue-200 flex flex-col text-center border  w-[60vw] mx-auto shadow-md '>
     
     <label className='my-2 py-4 px-8 bg-white border outline-none text-normal font-bold text-red-600
     rounded-xl  w-fit mx-auto'>
-          Wellcome {props.currentUser.email}
+          Wellcome {currentUser.email}
     <span 
     onClick={logOut}className="p-2 mx-4  rounded border border-blue-200 "  >logout</span>
     </label>

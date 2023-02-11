@@ -4,7 +4,7 @@ import { getDocs , collection ,doc , deleteDoc} from "firebase/firestore" ;
 import { FaMinus, FaPlus } from 'react-icons/fa';
 
 
-const MyArticles = (props) => {
+const MyArticles = ({currentUser }) => {
 
 const [listPosts , setListPostes ] = useState([]);
 const [showitem , setShowitem] = useState(false);
@@ -23,7 +23,7 @@ const getPosts = async ( )=>{
 
 useEffect(()=>{
 getPosts()
-}, [])
+}, [ ])
 const deletItem = async(id )=>{
     await deleteDoc( doc(  db , "users" , id))
 }
@@ -36,22 +36,19 @@ const deletItem = async(id )=>{
         return (
           <div className='w-full h-auto border p-2   md:py-4 md:px-8 mx-auto my-4 rounded relative ' key={item.id}>
           <div className='w-full h-auto flex justify-between '>
-          <h3 className='w-full p-2 md:px-4 text-start font-semibold bg-sky-500 text-white
-           text-lg capitalize
-          '
-          
-          
-          >{item.title}</h3>
+            <h3 className='w-full p-2 md:px-4 text-start font-semibold bg-sky-500 text-white
+            text-lg capitalize
+            ' >
+            {item.title}
+            </h3>
 
-          <button className=' p-2' onClick={()=> setShowitem(!showitem)}>
+              <button className=' p-2' onClick={()=> setShowitem(!showitem)}>
           
             {
               !showitem ?  <FaPlus className='text-xl text-gray-500 '/>:
               <FaMinus className='text-xl text-gray-500 '/>
-            
-            
             }
-            </button> 
+              </button> 
           </div>
            <p className ={ `w-full mt-4 p-2 md :p-8 font-mono indent-4 text-justify 
            text-md traking-widest
@@ -61,9 +58,9 @@ const deletItem = async(id )=>{
             </p>
 
           {
-           props.isauth && <div className='w-full h-8 text-blue-400  text-xl font-medium flex justify-between' >
+           currentUser && <div className='w-full h-8 text-blue-400  text-xl font-medium flex justify-between' >
            <p className='w-full text-left px-8 '>
-            @{item.author.name}
+            @ {item.author.name}
            </p>
            <span className='p-2 text-red-600 text-2xl '
              onClick={()=> deletItem(item.id)}>x</span>
