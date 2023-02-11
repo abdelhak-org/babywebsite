@@ -1,15 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link , useNavigate} from "react-router-dom"
 import "./navbar.css";
-
-
+import {FaBars} from"react-icons/fa"
+import {GoEyeClosed} from "react-icons/go"
 const Navbar = ({ currentUser }) => {
+  const [showNav , setShowNav] = useState(false)
 
 
 
   const navigateTo = useNavigate();
   return (
-    <div className='
+    <div className=' relative
       justify-center w-screen  bg-black text-white flex-col md:flex-row
       md:flex md:justify-between align-center py-2 px-4 '>
       <h3 onClick={()=> navigateTo("/")} className='cursor-pointer font-bold py-2 text-2xl uppercase
@@ -17,7 +18,7 @@ const Navbar = ({ currentUser }) => {
       '
       
       >baby<span className='text-rose-400'>world</span></h3> 
-      <ul className='sm:w-screen md:w-auto sm:text-current'>
+      <ul className= {`w-screen  md:w-auto transition-all ${showNav? "visible" :"hidden"}`}>
 
         <Link to="/" className='block md:inline text-center text-blue-400'><li>Home</li></Link> 
         <Link to ="about" className='block md:inline text-center'><li>about</li></Link>
@@ -37,9 +38,15 @@ const Navbar = ({ currentUser }) => {
        
        
         
-        
+    
 
       </ul>
+      <div onClick={()=> setShowNav(!showNav)}
+      className='w-12 h-12 md:hidden
+      absolute top-4 right-4 z-50 cursor-pointer 
+      '>
+       {!showNav ?<FaBars className='text-xl'/> : <GoEyeClosed className='text-xl'/>}
+      </div>
     </div>
   )
 }
