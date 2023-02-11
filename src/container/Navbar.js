@@ -18,7 +18,7 @@ const Navbar = ({ currentUser }) => {
       '
       
       >baby<span className='text-rose-400'>world</span></h3> 
-      <ul className= {`w-screen  md:w-auto transition-all ${showNav? "visible" :"hidden"}`}>
+      <ul className= {`w-screen  md:w-auto transition-all ${showNav? "visible" :"hidden"} md:inline-block`}>
 
         <Link to="/" className='block md:inline text-center text-blue-400'><li>Home</li></Link> 
         <Link to ="about" className='block md:inline text-center'><li>about</li></Link>
