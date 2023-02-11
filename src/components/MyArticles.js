@@ -4,7 +4,7 @@ import { getDocs , collection ,doc , deleteDoc} from "firebase/firestore" ;
 import { FaMinus, FaPlus } from 'react-icons/fa';
 
 
-const MyArticles = ({isauth}) => {
+const MyArticles = (props) => {
 
 const [listPosts , setListPostes ] = useState([]);
 const [showitem , setShowitem] = useState(false);
@@ -23,7 +23,6 @@ const getPosts = async ( )=>{
 
 useEffect(()=>{
 getPosts()
-
 }, [])
 const deletItem = async(id )=>{
     await deleteDoc( doc(  db , "users" , id))
@@ -60,13 +59,16 @@ const deletItem = async(id )=>{
             ${showitem?"visible":"hidden"}`}  >{item.body} <br/>
            
             </p>
-          { isauth && <div className='w-full h-8 text-blue-400  text-xl font-medium flex justify-between' >
+
+          {
+           props.isauth && <div className='w-full h-8 text-blue-400  text-xl font-medium flex justify-between' >
            <p className='w-full text-left px-8 '>
             @{item.author.name}
            </p>
            <span className='p-2 text-red-600 text-2xl '
              onClick={()=> deletItem(item.id)}>x</span>
-            </div>}
+            </div>
+            }
           </div>
 
 

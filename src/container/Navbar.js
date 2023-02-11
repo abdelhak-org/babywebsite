@@ -9,9 +9,14 @@ const Navbar = (props) => {
 
   const navigateTo = useNavigate();
   return (
-    <div className='justify-center w-screen  bg-black text-white 
+    <div className='
+    justify-center w-screen  bg-black text-white flex-col md:flex-row
     md:flex md:justify-between align-center py-2 px-4 '>
-      <h3 onClick={()=> navigateTo("/")} className='cursor-pointer font-bold py-2 text-2xl uppercase'>baby<span className='text-rose-400'>world</span></h3> 
+      <h3 onClick={()=> navigateTo("/")} className='cursor-pointer font-bold py-2 text-2xl uppercase
+      text-center
+      '
+      
+      >baby<span className='text-rose-400'>world</span></h3> 
       <ul className='sm:w-screen md:w-auto sm:text-current'>
 
         <Link to="/" className='block md:inline text-center text-blue-400'><li>Home</li></Link> 

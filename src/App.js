@@ -23,7 +23,6 @@ function App() {
    })
 
   useEffect(()=>{
-    
     axios.get("https://jsonplaceholder.typicode.com/posts").then((res)=>{
         setArticles(res.data)
       });
