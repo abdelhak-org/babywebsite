@@ -2,15 +2,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&family=Inter:wght@300;500;700;800;900&family=Josefin+Sans:wght@300;400;500&family=Roboto:ital,wght@0,300;0,500;0,700;1,400&display=swap');
+
+
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-size: 16px;
   
 
 }
+:root {
+  --primaryFont :'Roboto', sans-serif ;
+  --seconadaryFont : 'Inter', sans-serif ;
+  --scriptingFont  : 'Dancing Script', cursive ;
+}
+/*
+font-family: 'Dancing Script', cursive;
+font-family: 'Inter', sans-serif;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+*/
 body{
-  width :100vw;
+  width:100vw ;
   min-height:100vh ;
   background-color: #ffffff;
+}
+h1, h2, h3, h4 ,h5 ,h6 {
+  font-family: theme('fontFamily.inter');
+}
+p{
+  font-family: theme('fontFamily.sans')
 }

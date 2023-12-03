@@ -1,0 +1,47 @@
+/* Navbar.css */
+.navbar-container {
+    max-width: 1536px;
+    margin: 0rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #3498db;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-container.show {
+    height: 55px;
+  }
+  
+  .logo {
+    /* Add styles for your Logo component */
+  }
+  
+  .menu-items {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+  
+  .menu-item {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    color: #2ecc71;
+  }
+  
+  .control {
+    /* Add styles for your Control component */
+  }
+  
+  .menu {
+    /* Add styles for your Menu component */
+  }
+  

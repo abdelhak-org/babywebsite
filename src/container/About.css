@@ -1,0 +1,65 @@
+/* About.css */
+.about-container {
+    display: flex;
+    max-width: 1536px;
+    min-height: 100vh;
+    margin: 0rem auto 2rem;
+    padding: 4rem 2rem;
+ 
+
+  }
+  
+  .image-section {
+    width: 50%;
+    height: fit-content;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .image {
+    height: auto;
+    width: 100%;
+    border-radius: 1rem;
+  }
+  
+  .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0rem;
+    padding: 1rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: bottom 0.3s ease;
+  
+    &:hover {
+      bottom: 4rem;
+    }
+  }
+  
+  .content-section {
+    width: 50%;
+    padding-top: 1rem;
+  }
+  
+  .section-heading {
+    padding:1rem 6rem ;
+    text-align: start;
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top: 8rem;
+  }
+  
+  .section-content {
+    padding: 1rem 6rem;
+    text-align: start;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  

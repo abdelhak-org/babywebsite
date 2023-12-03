@@ -1,69 +1,65 @@
-import React, {useEffect, useState} from 'react'
-import {auth} from "../firebase.config";
+import React, { useState } from 'react';
+import { auth } from "../firebase.config";
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
-  const [loginEmail , setLoginEmail] = useState("");
-  const [loginPassword , setLoginPassword] = useState("")
-  const navigate = useNavigate("")
-  
-  const login = async(e)=>{
-    e.preventDefault() ;
-    await  signInWithEmailAndPassword(auth , loginEmail , loginPassword);
-    setLoginEmail("");
-    setLoginPassword("");
-    navigate("/addpost")
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const navigate = useNavigate();
 
-  }
-  
-  useEffect(()=>{
-    
+  const login = async (e) => {
+    e.preventDefault();
 
+    try {
+      await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+      setLoginEmail("");
+      setLoginPassword("");
+      navigate("/addpost");
+    } catch (error) {
+      console.error(error.message);
+      // Handle authentication error if needed
+    }
+  };
 
-  },[loginEmail])
- 
-
- 
   return (
-    <div className='w-screen min-h-screen bg-gray-100  flex justify-start
-      flex-col'>
-      <h3 className ='font-semibold  text-2xl text-center p-4 mx-auto mt-8 capitalize 
-       text-gray-800 w-96'> Sign in  </h3>
-
-      
-<form className='w-full h-full p-4 bg-white'>
-         <h4 className=' block w-fit mx-auto mt-8 text-gray-800 font-semibold text-xl tracking-wider'> 
-         Hello , friend! </h4>
-
-         <input onChange={e => setLoginEmail(e.target.value)}
-         value={loginEmail}
-           placeholder='Email '  className='w-80 px-4 py-2 border rounded-xl text-gray-500
-          shadow-md shadow-sky-200 block mx-auto my-4  mb-8  focus:border-blue-300 outline-none' />
-
-          <input  onChange={e => setLoginPassword(e.target.value )}
-          value ={loginPassword}
-           placeholder=' Password '  className='w-80 px-4 py-2 border rounded-xl focus:border-blue-300 text-gray-500 outline-none 
-          shadow-md shadow-sky-200 block mx-auto my-4 mb-8 ' />
-
-          <button onClick={login }
-          
-          className='w-80 px-4 py-2 border rounded-xl text-lg
-          shadow-md shadow-sky-200 block mx-auto my-4 bg-sky-400 text-teal-100  hover:text-white'>  Sign in </button>
-          
-
-          <p className='w-fit text-sm text-gray-800 mx-auto mt-8'> do not  have an Account
-          <span className='text-blue-500 ml-2 hover:underline cursor-pointer'>create an Account</span> </p>
-
+    <div className='max-w-[1536px] mx-auto min-h-screen bg-gray-light flex justify-center items-center'>
+      <div className='  p-8 bg-white rounded-lg shadow-md'>
+        <h3 className='text-2xl font-semibold text-center font-inter  text-["#333] my-4'>Sign in</h3>
+        <form className='space-y-4'>
+          <h4 className='text-xl font-semibold text-gray-800 text-center my-4'>
+            Hello, friend!
+          </h4>
+          <input
+            type='email'
+            onChange={(e) => setLoginEmail(e.target.value)}
+            value={loginEmail}
+            placeholder='Email'
+            className='w-full px-4 py-2 my-8 border border-none rounded-lg text-gray-light  focus:border-gray-light outline-none'
+          />
+          <input
+            type='password'
+            onChange={(e) => setLoginPassword(e.target.value)}
+            value={loginPassword}
+            placeholder='Password'
+            className='w-full px-4 py-2 my-8 border border-none rounded-lg focus:border-gray-light text-gray-500 outline-none'
+          />
+          <button
+            onClick={login}
+            className='w-full px-4 py-2 my-8 border rounded-lg text-lg bg-blue text-white hover:text-yellow focus:outline-none'
+          >
+            Sign in
+          </button>
+          <p className='text-sm text-gray-800 my-8 text-center mt-4'>
+            Don't have an account?{' '}
+            <span className='text-blue hover:underline cursor-pointer'>
+              Create an Account
+            </span>
+          </p>
         </form>
-       
-         
-      
-      
-      
-      
-     
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

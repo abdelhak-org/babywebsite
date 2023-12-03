@@ -1,84 +1,70 @@
-import React , {useState} from 'react';
-import {  createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from 'react';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import {auth} from "../firebase.config";
+import { auth } from "../firebase.config";
 
 const CreateUser = () => {
-    const [ userEmail , setUserEmail] = useState("");
-    const [ userPassword , setUserPassword] = useState("");
-    
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const navigate = useNavigate();
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
 
-
-  const navigate = useNavigate() ;
-
-  const submitHandler =  (e)=>{
-          e.preventDefault();
-            createUserWithEmailAndPassword(auth , userEmail ,userPassword)
-          .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            console.log("user is => ",user.email , user.id)
-            // ...
-          })
-          .catch((error) => {
-              console.log(error.message)
-            // ..
-          });
-          navigate("/login")
-
-  }
-
- 
-
-  
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, userEmail, userPassword);
+      const user = userCredential.user;
+      console.log("User:", user.email, user.id);
+      navigate("/login");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   return (
-      <div className='w-screen h-auto bg-gray-100 pt-8'>
-
-        <h2 className='text-4xl font-semibold w-fit  my-4 mx-auto '>Sign Up <span className='font-normal'> form</span></h2>
-
-        < div className=' w-screen min-h-screen  md:w-[80%] md:h-auto mx-auto flex flex-col md:flex-row
-        md:justify-between md:items-center border  rounded-xl shadow-lg drop-shadow-2xl     shadow-cyan-500 bg-white-400 overflow-hidden	'>
-
-        <div className='w-full md:w-[50%]  h-auto'>
-
-         <form className='w-full h-full p-4 bg-white my-4'>
-         <h4 className=' block w-fit mx-auto mt-8 text-gray-800 font-semibold text-xl tracking-wider'> 
-         Hello , friend! </h4>
-
-         <input onChange={e => setUserEmail(e.target.value)}
-           placeholder='Email '  className='w-80 px-4 py-2 border rounded-xl text-gray-500
-          shadow-md shadow-sky-200 block mx-auto my-4  mb-8  focus:border-blue-300 outline-none' />
-
-          <input  onChange={e => setUserPassword(e.target.value )}
-           placeholder=' Password '  className='w-80 px-4 py-2 border rounded-xl focus:border-blue-300 text-gray-500 outline-none 
-          shadow-md shadow-sky-200 block mx-auto my-4 mb-8 ' />
-
-          <button onClick={submitHandler }
-          
-          className='w-80 px-4 py-2 border rounded-xl text-lg
-          shadow-md shadow-sky-200 block mx-auto my-4 bg-sky-400 text-teal-100  hover:text-white'>Create Account</button>
-          
-
-          <p className='w-fit text-sm text-gray-800 mx-auto mt-8'> Already have an account
-          <span className='text-blue-500 ml-2 hover:underline cursor-pointer'>sign in</span> </p>
+    <div className='min-h-screen max-w-[1536px] mx-auto bg-gray-light px-8 flex items-center justify-center bg-gray-100'>
+      <div className='bg-white w-full md:w-3/4 lg:w-1/2 xl:w-1/3 p-8 rounded-lg shadow-lg'>
+        <h2 className='text-3xl font-semibold mb-8 text-center'>Sign Up Form</h2>
+        <form className='space-y-4'>
+          <div className='flex flex-col'>
+            <label htmlFor='email' className='text-sm font-medium'>Email</label>
+            <input
+              type='email'
+              id='email'
+              onChange={(e) => setUserEmail(e.target.value)}
+              placeholder='Enter your email'
+              className='py-2 px-4 border rounded-lg focus:outline-none focus:border-blue-400'
+            />
+          </div>
+          <div className='flex flex-col'>
+            <label htmlFor='password' className='text-sm font-medium'>Password</label>
+            <input
+              type='password'
+              id='password'
+              onChange={(e) => setUserPassword(e.target.value)}
+              placeholder='Enter your password'
+              className='py-2 px-4 border rounded-lg focus:outline-none focus:border-blue-400'
+            />
+          </div>
+          <button
+            onClick={submitHandler}
+            className='py-2 px-4 bg-yellow text-white rounded-lg hover:bg-blue-600 focus:outline-none'
+          >
+            Create Account
+          </button>
+          <p className='text-sm text-blue'>
+            Already have an account? <span className='text-blue-500 cursor-pointer hover:underline'>Sign in</span>
+          </p>
         </form>
-        
-        </div>
-
-        <div className='w-screen md:w-[50%] bg-gradient-to-b from-blue-200 to-sky-600  h-screen  flex justify-center items-center flex-col '>
-          <h3 className='w-fit text-2xl font-semibold text-white block mx-auto my-4'> Glad too meet you </h3>
-          <p className='block font-normal text-lg text-white my-4'> lorem lorem loem lor ipsu di ! </p>
-         
-        </div>
-
-
-
-
+      </div>
+      <div className='hidden md:flex flex-1 justify-center items-center  '>
+        <div className='w-4/5'>
+          <h3 className='text-4xl font-bold  font-inter  mb-4'>Glad to meet you</h3>
+          <p className='text-lg font-light font-roboto  '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in vestibulum felis.</p>
         </div>
       </div>
-  )
+    </div>
+  );
 }
 
-export default CreateUser
+export default CreateUser;
